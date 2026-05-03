@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Election Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🧠 Election Quiz</h1>
+
+<section>
+  <p id="question"></p>
+  <input type="text" id="answer" placeholder="Type your answer">
+  <br><br>
+  <button onclick="nextQuestion()">Next</button>
+  <p id="result"></p>
+</section>
+
+<button onclick="goHome()">⬅ Back</button>
+
+<script>
+
+// 15 Simple Questions
+const quiz = [
+  { q: "What is the minimum age to vote in India?", a: "18" },
+  { q: "What is the first step of an election?", a: "voter registration" },
+  { q: "What machine is used for voting in India?", a: "evm" },
+  { q: "Where do people go to vote?", a: "polling booth" },
+  { q: "What do candidates do before elections?", a: "campaigning" },
+  { q: "What is the process of giving your vote called?", a: "voting" },
+  { q: "What happens after voting ends?", a: "counting votes" },
+  { q: "Who wins the election?", a: "candidate with most votes" },
+  { q: "What type of government does India have?", a: "democracy" },
+  { q: "What is a voter ID used for?", a: "to vote" },
+  { q: "Is voting a right or duty?", a: "both" },
+  { q: "Who conducts elections in India?", a: "election commission" },
+  { q: "Can voting be done secretly?", a: "yes" },
+  { q: "What do elections help form?", a: "government" },
+  { q: "How often are general elections held in India?", a: "5 years" }
+];
+
+let current = 0;
+let score = 0;
+
+// Start Quiz
+function startQuiz() {
+  document.getElementById("question").innerText = quiz[current].q;
+}
+
+// Next Question
+function nextQuestion() {
+  let userAnswer = document.getElementById("answer").value.toLowerCase().trim();
+  let correctAnswer = quiz[current].a;
+
+  if (userAnswer === correctAnswer) {
+    score++;
+    document.getElementById("result").innerText = "✅ Correct!";
+  } else {
+    document.getElementById("result").innerText = "❌ Wrong! Correct answer: " + correctAnswer;
+  }
+
+  document.getElementById("answer").value = "";
+  current++;
+
+  if (current < quiz.length) {
+    document.getElementById("question").innerText = quiz[current].q;
+  } else {
+    document.getElementById("question").innerText = "🎉 Quiz Completed!";
+    document.getElementById("result").innerText = "Your Score: " + score + " / " + quiz.length;
+  }
+}
+
+// Back button
+function goHome() {
+  window.location.href = "index.html";
+}
+
+// Start quiz on load
+startQuiz();
+
+</script>
+
+</body>
+</html>

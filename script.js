@@ -1,11 +1,48 @@
-function checkAnswers() {
+function goToSteps() {
+window.location.href = "steps.html";
+}
+
+function goToWhy() {
+window.location.href = "why.html";
+}
+
+function goToQuiz() {
+window.location.href = "quiz.html";
+}
+
+const questions = [
+{ question: "What is voting age in India?", answer: "18" },
+{ question: "Who conducts elections?", answer: "election commission" },
+{ question: "Which ID is used?", answer: "voter id" }
+];
+
+let current = 0;
 let score = 0;
 
-let q1 = document.getElementById("q1").value.trim();
-let q2 = document.getElementById("q2").value.trim().toLowerCase();
+function startQuiz() {
+current = 0;
+score = 0;
+showQuestion();
+}
 
-if (q1 === "18") score++;
-if (q2.includes("election commission")) score++;
+function showQuestion() {
+document.getElementById("question").innerText = questions[current].question;
+document.getElementById("answer").value = "";
+document.getElementById("result").innerText = "";
+}
 
-document.getElementById("result").innerText = "Score: " + score + "/2";
+function nextQuestion() {
+let ans = document.getElementById("answer").value.toLowerCase();
+
+if (ans === questions[current].answer) score++;
+
+current++;
+
+if (current < questions.length) {
+showQuestion();
+} else {
+document.getElementById("question").innerText = "Quiz Finished!";
+document.getElementById("result").innerText =
+"Score: " + score + "/" + questions.length;
+}
 }

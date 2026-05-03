@@ -9,37 +9,70 @@
 
 <h1>🗳️ Election Process Education</h1>
 
-<section>
-  <h2>Steps in Election</h2>
-  <ol>
-    <li>Voter Registration</li>
-    <li>Campaigning</li>
-    <li>Voting</li>
-    <li>Counting Votes</li>
-    <li>Results</li>
-  </ol>
+<section class="hero">
+  <h2>Learn How Elections Work</h2>
+  <p>Explore election steps, understand voting importance, and test your knowledge.</p>
 </section>
 
-<section>
-  <h2>Why Voting Matters</h2>
-  <p>Voting allows citizens to choose leaders and influence decisions.</p>
+<section class="grid">
+
+  <div class="card" onclick="goToSteps()">
+    <h3>📋 Steps in Election</h3>
+    <p>Understand each stage of elections.</p>
+  </div>
+
+  <div class="card" onclick="goToWhy()">
+    <h3>🧠 Why Voting Matters</h3>
+    <p>Learn why voting is important.</p>
+  </div>
+
+  <div class="card" onclick="goToVoterRights()">
+    <h3>📜 Voter Rights</h3>
+    <p>Know your rights as a voter.</p>
+  </div>
+
+  <div class="card" onclick="goToRules()">
+    <h3>⚖️ Election Rules</h3>
+    <p>Basic rules of elections.</p>
+  </div>
+
+  <div class="card" onclick="goToDemocracy()">
+    <h3>🌍 Democracy</h3>
+    <p>Understand democracy.</p>
+  </div>
+
+  <div class="card" onclick="goToQuiz()">
+    <h3>🎯 Take Quiz</h3>
+    <p>Test your knowledge.</p>
+  </div>
+
 </section>
 
-<section>
-  <h2>Quick Quiz</h2>
+<script>
+  function goToSteps() {
+    window.location.href = "steps.html";
+  }
 
-  <p>Minimum voting age in India?</p>
-  <input type="text" id="q1">
+  function goToWhy() {
+    window.location.href = "why.html";
+  }
 
-  <p>Who conducts elections in India?</p>
-  <input type="text" id="q2">
+  function goToQuiz() {
+    window.location.href = "quiz.html";
+  }
 
-<br><br> <button onclick="checkAnswers()">Submit</button>
+  function goToVoterRights() {
+    window.location.href = "voter-rights.html";
+  }
 
-  <p id="result"></p>
-</section>
+  function goToRules() {
+    window.location.href = "election-rules.html";
+  }
 
-<script src="script.js"></script>
+  function goToDemocracy() {
+    window.location.href = "democracy.html";
+  }
+</script>
 
 </body>
 </html>
